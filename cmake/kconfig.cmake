@@ -209,6 +209,18 @@ if(EXISTS ${BOARD_DEFCONFIG})
             list(APPEND config_module_list examples/${example})
         endif()
 
+        # Find variable name
+        string(REGEX MATCH "^CONFIG_MYAPP[^=]+" Myapp ${NameAndValue})
+
+        if(Myapp)
+            # Find the value
+            string(REPLACE "${Name}=" "" Value ${NameAndValue})
+            string(REPLACE "CONFIG_MYAPP_" "" myapp ${Name})
+            string(TOLOWER ${myapp} myapp)
+
+            list(APPEND config_module_list myapp/${myapp})
+        endif()
+
     endforeach()
 
     # Put every module not in userspace also to kernel list

@@ -191,6 +191,10 @@ menu "examples"
 source "src/examples/Kconfig"
 endmenu
 
+menu "myapp"
+source "src/myapp/Kconfig"
+endmenu
+
 menu "platforms"
 source "platforms/common/Kconfig"
 endmenu

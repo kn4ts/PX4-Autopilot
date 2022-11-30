@@ -1,0 +1,5 @@
+menuconfig MYAPP_PX4_TEST
+	bool "px4 test app"
+	default n
+	---help---
+		Enable support for px4_test
